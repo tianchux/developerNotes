@@ -1,0 +1,33 @@
+Installation for Docker on Windows 10 Pro speical configrations: 
+
+1. Please install the Docker Desktop Community 19.03.5 (stable) version, new version of 22.x+ has not be succesffuly tested. 
+   Download Desktop Communtiy from the release notes: https://docs.docker.com/docker-for-windows/release-notes/
+   Or Directly download from Github: https://github.com/docker/docker-ce/releases/tag/v19.03.5
+
+2. Follow the steps on offical website to config: https://docs.docker.com/docker-for-windows/install/
+	(1) Hyper-V and Containers Windows features must be enabled.
+	(2) BIOS-level hardware virtualization support must be enabled in the BIOS settings
+			test from Task Manager -> Performance -> CPU -> Virtualization Enabled
+
+3. Using Linux containers when installing Docker Desktop exe 
+
+
+
+/* Important Config */
+Besides the standardlize Docker Desktop configs, there are essential and nesseary extra steps to ensure the Docker Desktop run properly
+        1, Open "Window Security"
+		2, Open "App & Browser control"
+		3, Click "Exploit protection settings" at the bottom
+		4, Switch to "Program settings" tab
+		5, Locate "C:\WINDOWS\System32\vmcompute.exe" in the list and expand it
+		6, Click "Edit"
+		7, Scroll down to "Code flow guard (CFG)" and uncheck "Override system settings"
+		8, Start vmcompute from powershell "net start vmcompute"
+
+
+If it stills pops errors for new Hyper-V realted problems, please try: 
+		1, Open powershell in administrator mode
+		2, Navigate to directory C:\Program Files\Docker\Docker\resources
+		3, Run the following commands
+		4, powershell -ExecutionPolicy ByPass -File "C:\Program Files\Docker\Docker\resources\MobyLinux.ps1" -destroy
+		5, powershell -ExecutionPolicy ByPass -File "C:\Program Files\Docker\Docker\resources\MobyLinux.ps1" -create
