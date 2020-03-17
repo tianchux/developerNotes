@@ -1,0 +1,28 @@
+/* */
+
+0. # Set up the AOE by github
+		git clone https://github.com/OriGene/AOE.git
+
+1. # Set up rubynode in another location 
+        (1) git clone https://github.com/OriGene/rubynode
+        (2) docker-compose build
+
+        (*) this only requires to do only once, to ensure the rubynode version and system is ready for use
+
+2.  # Set up Bootstrap 
+		(1) cd AOE
+		(2) docker-compose build
+			docker-compose run bootstrap grunt dist
+			docker-compose run bootstrap grunt modernizr:dist
+			docker-compose up -d
+
+		(*) references: https://github.com/OriGene/AOE/tree/master/broaddock
+		(?) ERROR: Cannot create container for service bootstrap: b'Drive has not been shared'
+
+3.	# Change the .env file to connect to VPN database (or local database)
+		(1) root dir on AOE, open .env, revise the following: 
+		(2) DB_HOST=10.7.6.104
+			DB_PORT=3306
+			DB_NAME=broadleaf56
+			DB_USER=broadleaf
+			DB_PASSWORD=broadleaf

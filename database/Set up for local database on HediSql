@@ -1,0 +1,8 @@
+Set up for local database on HediSql
+1. open HediSql, click New
+2. Set up essentail fields: 
+	(1) Hostname / IP: 	127.0.0.1 			[default]
+	(2) User: 			rootbf
+	(3) Password: 		rootbf
+	(4) Port:			3306				[default]
+	(5) Network type: 	MariaDb (TCP/IP) 	[default]
